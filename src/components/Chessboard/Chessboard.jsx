@@ -30,7 +30,7 @@ for(let i=1;i<=8;i++){
   }
 }
 
-//Place pawns
+
 
 
 function ChessBoard(){
@@ -46,14 +46,14 @@ function ChessBoard(){
       gridTemplateRows: 'repeat(8,80px)',
       backgroundColor: 'black',
       borderRadius: '5px',
-    }}>
+    }} >
       {
         rows.map(row => (
         cols.map(col=>{
           const matchingPiece = pieces.find(piece => piece.row === row && piece.col === col);
           return ((row+col)%2==0?
-          <Cell num={row+col} row = {row} col={col} color={"#769656"} image={matchingPiece?matchingPiece.image:undefined}/>:
-          <Cell num={row+col} row = {row} col={col} color={"#eeeed2"} image={matchingPiece?matchingPiece.image:undefined}/>
+          <Cell num={row+col} key={`${row},${col}`} row = {row} col={col} color={"#769656"} image={matchingPiece?matchingPiece.image:undefined}/>:
+          <Cell num={row+col} key={`${row},${col}`} row = {row} col={col} color={"#eeeed2"} image={matchingPiece?matchingPiece.image:undefined}/>
           )  
         })
       ))}
